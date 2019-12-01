@@ -9,10 +9,10 @@ public class PlayerController : MonoBehaviour
     public float maxX;
     public float maxY;
     public GameObject Bullet;
-    public float shotTimer = 0.0f;
     public float life = 100;
     public Enemy enemyScript;
 
+    float shotTimer = 0.0f;
 
     void Move()
     {

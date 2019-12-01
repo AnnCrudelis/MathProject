@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,12 +11,40 @@ public class Enemy : MonoBehaviour
     public int life;
     public PlayerController playerScript;
     public Bullet bulletScript;
+    public Text myText;
+    public GameObject rightWing;
+    public GameObject leftWing;
+
 
     void Move()
     {
-        Vector3 pos = rb.position;
-        pos.y -= speed * Time.deltaTime;
-        rb.MovePosition(pos);
+        if (rightWing != null && leftWing != null)
+        {
+            Vector3 pos = rb.position;
+            pos.y -= speed * Time.deltaTime;
+            rb.MovePosition(pos);
+        }
+        if (rightWing == null && leftWing == null)
+        {
+            Vector3 pos = rb.position;
+            pos.y -= speed * Time.deltaTime;
+            rb.MovePosition(pos);
+        }
+        if (rightWing == null && leftWing != null)
+        {
+            Vector3 pos = rb.position;
+            pos.y -= speed * Time.deltaTime;
+            pos.x -= 0.5f * speed * Time.deltaTime;
+            rb.MovePosition(pos);
+        }
+        if (rightWing != null && leftWing == null)
+        {
+            Vector3 pos = rb.position;
+            pos.y -= speed * Time.deltaTime;
+            pos.x += 0.5f * speed * Time.deltaTime;
+            rb.MovePosition(pos);
+        }
+
     }
     public void DMG(int dmg)
     {
@@ -23,6 +53,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void MyValue()
+    {
+        int randValue = Random.Range(1,20);
+        myText.text = randValue.ToString();        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -38,14 +73,17 @@ public class Enemy : MonoBehaviour
             DMG(50);
         }
     }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 6);
+        myText = gameObject.AddComponent<Text>();
+        MyValue();
     }
 
     void Update()
     {
-        Move();
+        Move();       
     }
 }

@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {                
-        Vector3 position = new Vector3(Random.Range(-5.0f, 5.0f),transform.position.y, 0);
+        Vector3 position = new Vector3(Random.Range(-3.0f, 3.0f),transform.position.y, 0);
         GameObject GenEnemy = Instantiate(enemyTemplate[0], position, Quaternion.identity);
     }
     
