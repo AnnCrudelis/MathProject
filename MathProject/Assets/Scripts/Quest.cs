@@ -6,7 +6,17 @@ using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
 {
-    Text quest;
+    public Text quest;
+    bool done = true;
+
+    public string[,] tasks =
+    {
+        {"H2O","HHO"},
+        {"OH","OH"},
+        {"CO2","COO"},
+        {"COH","COH"}
+    };
+
     void Start()
     {
         quest = GetComponent<Text>();
@@ -14,6 +24,12 @@ public class Quest : MonoBehaviour
 
     void Update()
     {
-        
+        if (done)
+        {
+            quest.text = tasks[Random.Range(0, 4),0].ToString();
+            done = false;
+        }
     }
+    
 }
+

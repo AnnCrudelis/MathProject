@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public GameObject Bullet;
     public float life = 100;
     public Enemy enemyScript;
-
     float shotTimer = 0.0f;
 
     void Move()
