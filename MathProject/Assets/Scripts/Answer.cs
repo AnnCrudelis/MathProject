@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Answer : MonoBehaviour
 {
 
-    public Quest quest;
+    public Quest questScript;
     Text answer;
+    public PlayerController playerScript;
     public static string strValue = "";
     void Start()
     {
@@ -16,10 +18,26 @@ public class Answer : MonoBehaviour
 
     void Update()
     {
-        if (quest.quest.text.ToString().IndexOf(strValue) >= 0)
+        if (questScript.questValue.IndexOf(strValue) >= 0)
         {
             answer.text = answer.text.ToString() + strValue.ToString();
             strValue = "";
+
+            if (questScript.questValue.Length <= answer.text.ToString().Length)
+            {
+                if (String.Equals(questScript.questValue, answer.text.ToString(), StringComparison.Ordinal))
+                {
+                    Debug.Log("Done");
+                }
+                else
+                {
+                    Debug.Log("Auch");
+                    playerScript.DMG(25);
+                }
+                questScript.done = true;
+                answer.text = null;
+            }
+
         }
         //Сравнение строк квеста и ответа, и ограничение на длину ответа относительно квеста
         //И рефакторинг

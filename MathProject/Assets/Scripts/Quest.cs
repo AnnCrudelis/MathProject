@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Quest : MonoBehaviour
 {
     public Text quest;
-    bool done = true;
+    public string questValue;
+    public bool done;
 
     public string[,] tasks =
     {
@@ -20,13 +21,20 @@ public class Quest : MonoBehaviour
     void Start()
     {
         quest = GetComponent<Text>();
+        int i = Random.Range(0, tasks.Length / 2);
+        quest.text = tasks[i, 0].ToString();
+        questValue = tasks[i, 1];
+        done = false;
     }
 
     void Update()
     {
         if (done)
         {
-            quest.text = tasks[Random.Range(0, 4),0].ToString();
+            int i = Random.Range(0, tasks.Length / 2);
+            quest.text = tasks[i,0].ToString();
+            questValue = tasks[i,1];
+            Debug.Log(questValue);
             done = false;
         }
     }

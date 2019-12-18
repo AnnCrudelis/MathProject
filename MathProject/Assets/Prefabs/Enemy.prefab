@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0015945435, y: -0.0015869141}
+  m_Offset: {x: 0.0077287257, y: -0.0015869141}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16239929, y: 0.1496582}
+  m_Size: {x: 0.15013093, y: 0.1496582}
   m_EdgeRadius: 0
 --- !u!212 &7326345612932359414
 SpriteRenderer:
@@ -151,7 +151,7 @@ RectTransform:
   m_GameObject: {fileID: 1400817258972677260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.23668702}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 357161908032403410}
   - {fileID: 5057161765109053962}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9a3b184b4b17644bd1558d435f7e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   life: 100
   playerScript: {fileID: 1912503869248165850, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7,
     type: 3}
@@ -281,12 +281,12 @@ MonoBehaviour:
   myText: {fileID: 3304482585126025486}
   rightWing: {fileID: 1478284218461453638}
   leftWing: {fileID: 1296798632542691780}
-  quest: {fileID: 0}
-  myValue: 
   answer: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927, type: 3}
   value:
   - H
   - O
+  - C
+  - Ne
 --- !u!222 &3290765686131144611
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0015945435, y: -0.0015869141}
+  m_Offset: {x: -0.0052971877, y: -0.0015869141}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -352,7 +352,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16239929, y: 0.1496582}
+  m_Size: {x: 0.14861584, y: 0.1496582}
   m_EdgeRadius: 0
 --- !u!212 &6630937342906538821
 SpriteRenderer:

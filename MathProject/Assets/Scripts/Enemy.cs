@@ -16,11 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject leftWing;
     public Answer answer;
 
-    public List<string> value = new List<string>
-    {
-        "H",
-        "O"
-    };
+    public List<string> value = new List<string>();
 
     void Move()
     {
@@ -65,7 +61,7 @@ public class Enemy : MonoBehaviour
 
     public void MyValue()
     {
-        myText.text = value[Random.Range(0, 2)].ToString();              
+        myText.text = value[Random.Range(0, value.Count)].ToString();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -85,7 +81,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 6);
+        Destroy(gameObject, 8);
         MyValue();
 
     }
