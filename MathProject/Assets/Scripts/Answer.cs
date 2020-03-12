@@ -25,7 +25,7 @@ public class Answer : MonoBehaviour
 
             if (questScript.questValue.Length <= answer.text.ToString().Length)
             {
-                if (String.Equals(questScript.questValue, answer.text.ToString(), StringComparison.Ordinal))
+                if (questScript.questValue.Contains(answer.text.ToString()))
                 {
                     Debug.Log("Done");
                 }

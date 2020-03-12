@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.97088087, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -640,15 +640,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519420032}
     m_Modifications:
-    - target: {fileID: 2597130201838927185, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 1912503869248165850, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7,
         type: 3}
       propertyPath: speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597130201838927185, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8238591290178393132, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7,
         type: 3}
@@ -796,6 +796,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1335720845}
     m_Modifications:
+    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
+        type: 3}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 253283201}
+    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
+        type: 3}
+      propertyPath: strValue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 635961083}
+    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
+        type: 3}
+      propertyPath: questScript
+      value: 
+      objectReference: {fileID: 253283201}
     - target: {fileID: 6566340224057427980, guid: 506616f71fef73642bd6a709e4863927,
         type: 3}
       propertyPath: m_Name
@@ -906,26 +926,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
-        type: 3}
-      propertyPath: quest
-      value: 
-      objectReference: {fileID: 253283201}
-    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
-        type: 3}
-      propertyPath: strValue
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
-        type: 3}
-      propertyPath: playerScript
-      value: 
-      objectReference: {fileID: 635961083}
-    - target: {fileID: 6566340224057427982, guid: 506616f71fef73642bd6a709e4863927,
-        type: 3}
-      propertyPath: questScript
-      value: 
-      objectReference: {fileID: 253283201}
     - target: {fileID: 6566340224057427983, guid: 506616f71fef73642bd6a709e4863927,
         type: 3}
       propertyPath: m_FontData.m_FontSize
