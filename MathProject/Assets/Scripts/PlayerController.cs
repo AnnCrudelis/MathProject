@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 1.5f;
     public Enemy enemyScript;
     public float maxHp = 100;
+    Gui gui;
     void Start()
     {
+        gui = FindObjectOfType<Gui>();
+        gui.playerIsDead = false;
         currentHP = maxHp;
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
@@ -56,4 +59,9 @@ public class PlayerController : MonoBehaviour
     {
         Move();
     }
+    void OnDestroy()
+    {
+        gui.playerIsDead = true;
+    }
+
 }

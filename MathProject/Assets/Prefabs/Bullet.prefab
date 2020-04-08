@@ -131,7 +131,9 @@ MonoBehaviour:
   enemyScript: {fileID: 1023483955485389298, guid: 64d7e0203c4f0c941a3e93140dddfc7a,
     type: 3}
   wingScript: {fileID: 0}
-  score: {fileID: 5939419068824822000, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7, type: 3}
+  explosion:
+  - {fileID: 3812984914105528717, guid: 7eaeb494ce9c3f04c88645066073885e, type: 3}
+  - {fileID: 8786681976213276112, guid: 5075662b608141c4ba70de4cc458d181, type: 3}
 --- !u!50 &6916292095688251075
 Rigidbody2D:
   serializedVersion: 4

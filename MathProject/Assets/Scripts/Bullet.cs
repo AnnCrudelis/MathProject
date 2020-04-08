@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D RB2DBull;
     public Enemy enemyScript;
     public Wing wingScript;
+    public GameObject[] explosion;
  
 
     void Start()
@@ -17,10 +18,13 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject != null)
+        {
+        GameObject newExplosion = Instantiate(explosion[Random.Range(0,explosion.Length-1)],transform.position,Quaternion.identity);
+        Destroy(newExplosion,0.35f);
         if (collision.gameObject.tag == "Enemy")
         {
             enemyScript = collision.gameObject.GetComponent<Enemy>();
-            
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "RightWing")
@@ -32,6 +36,7 @@ public class Bullet : MonoBehaviour
         {
             wingScript = collision.gameObject.GetComponent<Wing>();
             Destroy(gameObject);
+        }
         }
     }
     void Update()

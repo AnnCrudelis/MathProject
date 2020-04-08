@@ -18,33 +18,6 @@ public class Answer : MonoBehaviour
         answer = GetComponent<Text>();
     }
 
-   /* void Update()
-    {
-        if (questScript.questValue.IndexOf(strValue) >= 0)
-        {
-            answer.text = answer.text.ToString() + strValue.ToString();
-            strValue = "";
-
-            if (questScript.questValue.Length <= answer.text.ToString().Length)
-            {
-                if (questScript.questValue.Contains(answer.text.ToString()))
-                {
-                    Debug.Log("Done");
-                    playerScript.GetComponent<Score>().currentScore += 20;
-                }
-                else
-                {
-                    Debug.Log("Auch");
-                    playerScript.DMG(25);
-                }
-                questScript.done = true;
-                answer.text = null;
-            }
-
-        }
-
-    }*/
-    string str = "hui";
         void Update()
     {
         if (strValue != "")
@@ -78,7 +51,6 @@ public class Answer : MonoBehaviour
             
 
         }
-        //Сравнение строк квеста и ответа, и ограничение на длину ответа относительно квеста
-        //И рефакторинг
+
     }
 }
