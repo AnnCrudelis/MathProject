@@ -50,9 +50,11 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
     public void DMG(int dmg)
     {
         life -= dmg;
+        
         if (life <= 0)
         {
             Answer.strValue = myText.text.ToString();
@@ -69,17 +71,21 @@ public class Enemy : MonoBehaviour
         {
             myBuff = buffs[0];
         }
-        if (buffChance>90 && buffChance<=97)
+        if (buffChance>94 && buffChance<=97)
         {
             myBuff = buffs[1];
         }
-        if(buffChance>85 && buffChance<=90)
+        if (buffChance>90 && buffChance<=94)
         {
             myBuff = buffs[2];
         }
-        if(buffChance>80 && buffChance<=85)
+        if(buffChance>85 && buffChance<=90)
         {
             myBuff = buffs[3];
+        }
+        if(buffChance>80 && buffChance<=85)
+        {
+            myBuff = buffs[4];
         }
     }
 

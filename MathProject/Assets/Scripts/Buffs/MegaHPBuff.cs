@@ -8,7 +8,7 @@ public class MegaHPBuff : MonoBehaviour, IBuffable
     public float lifeTime;
     void Start()
     {
-        Destroy(this, lifeTime);
+        Destroy(this.gameObject, lifeTime);
     }
 
     public void Buff(GameObject gameObject)

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffVolume: 25
+  lifeTime: 5
 --- !u!212 &-1334359940064621429
 SpriteRenderer:
   m_ObjectHideFlags: 0

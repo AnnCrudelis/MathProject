@@ -2,24 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedAttackBuff : MonoBehaviour, IBuffable
+public class PointsBuff : MonoBehaviour, IBuffable
 {
-        public float lifeTime;
+    public float lifeTime;
     void Start()
     {
         Destroy(this.gameObject, lifeTime);
     }
-    public float buffVolume = 0.05f;
+
     public void Buff(GameObject gameObject)
     {
-        float speedAttack = gameObject.GetComponentInChildren<Gun>().speedAttack;
-        if(speedAttack>=0.15f)
-        {
-            speedAttack -= buffVolume;
-        }
+        gameObject.GetComponent<Score>().currentScore += 100;
     }
     void Update()
     {
         transform.position += Vector3.down*Time.deltaTime;
     }
+
 }

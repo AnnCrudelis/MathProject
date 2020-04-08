@@ -7,16 +7,18 @@ using System;
 public class Answer : MonoBehaviour
 {
 
+
     public Quest questScript;
     Text answer;
     public PlayerController playerScript;
     public static string strValue = "";
     void Start()
     {
+        
         answer = GetComponent<Text>();
     }
 
-    void Update()
+   /* void Update()
     {
         if (questScript.questValue.IndexOf(strValue) >= 0)
         {
@@ -28,6 +30,7 @@ public class Answer : MonoBehaviour
                 if (questScript.questValue.Contains(answer.text.ToString()))
                 {
                     Debug.Log("Done");
+                    playerScript.GetComponent<Score>().currentScore += 20;
                 }
                 else
                 {
@@ -37,6 +40,42 @@ public class Answer : MonoBehaviour
                 questScript.done = true;
                 answer.text = null;
             }
+
+        }
+
+    }*/
+    string str = "hui";
+        void Update()
+    {
+        if (strValue != "")
+        {
+            answer.text = answer.text.ToString() + strValue.ToString();
+            
+            if (questScript.questValue.Contains(strValue.ToString()))
+            {
+                Debug.Log(questScript.questValue.IndexOf(strValue));
+                string newQuest = questScript.questValue.Remove(questScript.questValue.IndexOf(strValue),strValue.Length);
+                questScript.questValue = newQuest;
+                Debug.Log("Hit");
+                Debug.Log(questScript.questValue);
+            }
+            else
+            {
+                Debug.Log("Auch");
+                playerScript.DMG(25);
+                questScript.done = true;
+                answer.text = null;
+            }
+
+            if (questScript.questValue.Length <= 0)
+            {
+                Debug.Log("Done");
+                playerScript.GetComponent<Score>().currentScore += 20;
+                questScript.done = true;
+                answer.text = null;
+            }
+            strValue = "";
+            
 
         }
         //Сравнение строк квеста и ответа, и ограничение на длину ответа относительно квеста

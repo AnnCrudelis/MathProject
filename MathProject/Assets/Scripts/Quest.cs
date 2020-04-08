@@ -12,10 +12,10 @@ public class Quest : MonoBehaviour
 
     public string[,] tasks =
     {
-        {"H2O","HHO"},
-        {"OH","OH"},
-        {"CO2","COO"},
-        {"COH","COH"}
+        {"Вода","HHO"},
+        {"Гидроксид","OH"},
+        {"Углекислый газ","COO"},
+        {"Метан","CHHHH"},
     };
 
     void Start()
@@ -25,6 +25,7 @@ public class Quest : MonoBehaviour
         quest.text = tasks[i, 0].ToString();
         questValue = tasks[i, 1];
         done = false;
+        Debug.Log(questValue);
     }
 
     void Update()

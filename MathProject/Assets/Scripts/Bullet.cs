@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D RB2DBull;
     public Enemy enemyScript;
     public Wing wingScript;
+ 
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             enemyScript = collision.gameObject.GetComponent<Enemy>();
+            
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "RightWing")

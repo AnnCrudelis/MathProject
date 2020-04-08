@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -130,6 +131,7 @@ MonoBehaviour:
   enemyScript: {fileID: 1023483955485389298, guid: 64d7e0203c4f0c941a3e93140dddfc7a,
     type: 3}
   wingScript: {fileID: 0}
+  score: {fileID: 5939419068824822000, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7, type: 3}
 --- !u!50 &6916292095688251075
 Rigidbody2D:
   serializedVersion: 4
@@ -165,6 +167,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

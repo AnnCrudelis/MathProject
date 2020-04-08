@@ -11,6 +11,5 @@ public class Gui : MonoBehaviour
     void Update()
     {
         healthBar.UpdateBar(playerScript.currentHP, playerScript.maxHp);
-
     }
 }
