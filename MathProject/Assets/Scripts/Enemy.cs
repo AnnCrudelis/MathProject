@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public GameObject rightWing;
     public GameObject leftWing;
     public Answer answer;
+    public GameObject[] buffs;
+    GameObject myBuff;
 
     public List<string> value = new List<string>();
 
@@ -62,6 +64,23 @@ public class Enemy : MonoBehaviour
     public void MyValue()
     {
         myText.text = value[Random.Range(0, value.Count)].ToString();
+        float buffChance = Random.Range(0,100);
+        if (buffChance>97)
+        {
+            myBuff = buffs[0];
+        }
+        if (buffChance>90 && buffChance<=97)
+        {
+            myBuff = buffs[1];
+        }
+        if(buffChance>85 && buffChance<=90)
+        {
+            myBuff = buffs[2];
+        }
+        if(buffChance>80 && buffChance<=85)
+        {
+            myBuff = buffs[3];
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -89,5 +108,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();       
+    }
+    void OnDestroy()
+    {
+        if(myBuff!=null)
+        {
+        Instantiate(myBuff,this.transform.position,Quaternion.identity);
+        }
     }
 }

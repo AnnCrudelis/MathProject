@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
-    public float speed;
     public float maxX = Screen.width;
     public float maxY = Screen.height;
-    public GameObject Bullet;
-    public float life = 100;
+    public float currentHP;
+    public float speed = 1.5f;
     public Enemy enemyScript;
-    float shotTimer = 0.0f;
+    public float maxHp = 100;
     void Start()
     {
+        currentHP = maxHp;
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
@@ -22,73 +22,16 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 playerPos = rigidbody2d.position;
         float dirX = Input.GetAxis("Horizontal");
-
-#if UNITY_ANDROID
-        playerPos.x += speed * Time.deltaTime * GetDirectionFromTouch();
-
-#else      
         playerPos.x += speed * Time.deltaTime * dirX;
-
-#endif
         playerPos.x = Mathf.Clamp(playerPos.x, -maxX, maxX);
         rigidbody2d.MovePosition(playerPos);
     }
-    float GetDirectionFromTouch()
-    {
-        float ScreenHeight = Screen.height;
-        float ScreenWidth = Screen.width;
-        Touch[] myTouches = Input.touches;
-        for (int i = 0; i < Input.touchCount; i++)
-        {
-            Touch curTouch = myTouches[i];
-            if (curTouch.position.x > ScreenWidth / 2 && curTouch.position.y < ScreenHeight / 4  )
-            {
-                return 1.0f;
-            }
-            else if (curTouch.position.x < ScreenWidth / 2 && curTouch.position.y < ScreenHeight / 4)
-            {
-
-                return -1.0f;
-            }
-            else if (curTouch.position.x > ScreenWidth / 2 && curTouch.position.y < ScreenHeight / 2)
-            {
-                Shoot();
-                return 1.0f;
-            }
-            else if (curTouch.position.x < ScreenWidth / 2 && curTouch.position.y < ScreenHeight / 2)
-            {
-                Shoot();
-                return -1.0f;
-            }
-        }
-        return 0;
-    }
-
-    public void Shoot()
-    {
-        if (shotTimer <= 0.0f)
-        {
-#if UNITY_ANDROID
-            GameObject BulletShot = Instantiate(Bullet, this.transform.position, Quaternion.identity);
-            BulletShot.transform.position += Vector3.up;
-#else
-            if (Input.GetKey(KeyCode.Space))
-            {
-                GameObject BulletShot = Instantiate(Bullet, this.transform.position, Quaternion.identity);
-                BulletShot.transform.position += Vector3.up;
-            }
-#endif
-            shotTimer = Random.Range(0.3f, 0.5f);
-        }
-        else
-        {
-            shotTimer -= Time.deltaTime;
-        }
-    }
+   
+    
     public void DMG(float dmg)
     {
-        life -= dmg;
-        if (life <= 0)
+        currentHP -= dmg;
+        if (currentHP <= 0)
         {
             Destroy(gameObject);
         }
@@ -100,14 +43,17 @@ public class PlayerController : MonoBehaviour
             enemyScript = collision.gameObject.GetComponent<Enemy>();
             DMG(25);
         }
+        if (collision.gameObject.GetComponent<IBuffable>() != null)
+        {
+            IBuffable buff = collision.gameObject.GetComponent<IBuffable>();
+            buff.Buff(this.gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 
 
     void Update()
     {
         Move();
-#if !UNITY_ANDROID
-        Shoot();
-#endif
     }
 }
