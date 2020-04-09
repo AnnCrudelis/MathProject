@@ -20,7 +20,7 @@ public class Answer : MonoBehaviour
 
         void Update()
     {
-        if (strValue != "")
+        if (questScript.questValue.IndexOf(strValue) >= 0)
         {
             answer.text = answer.text.ToString() + strValue.ToString();
             

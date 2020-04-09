@@ -17,8 +17,18 @@ public class Enemy : MonoBehaviour
     public Answer answer;
     public GameObject[] buffs;
     GameObject myBuff;
+    public Score score;
+    int valueCount = 3;
 
     public List<string> value = new List<string>();
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 8);
+        MyValue();
+        
+    }
 
     void Move()
     {
@@ -58,6 +68,10 @@ public class Enemy : MonoBehaviour
         if (life <= 0)
         {
             Answer.strValue = myText.text.ToString();
+            if(myBuff!=null)
+            {
+                Instantiate(myBuff,this.transform.position,Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }
@@ -65,7 +79,12 @@ public class Enemy : MonoBehaviour
 
     public void MyValue()
     {
-        myText.text = value[Random.Range(0, value.Count)].ToString();
+        if (score.currentScore % 60 == 0 && valueCount<value.Count)
+        {
+            valueCount+=1;
+            speed += 0.5f;
+        }
+        myText.text = value[Random.Range(0, valueCount-1)].ToString();
         float buffChance = Random.Range(0,100);
         if (buffChance>97)
         {
@@ -103,23 +122,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 8);
-        MyValue();
 
-    }
 
     void Update()
     {
         Move();       
     }
-    void OnDestroy()
-    {
-        if(myBuff!=null)
-        {
-        Instantiate(myBuff,this.transform.position,Quaternion.identity);
-        }
-    }
+
 }

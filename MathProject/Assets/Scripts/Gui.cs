@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Gui : MonoBehaviour
 {
@@ -13,14 +14,17 @@ public class Gui : MonoBehaviour
     AudioSource audioSource;
     public AudioListener audioListener;
     public bool playerIsDead;
+    Score highScore;
+    public Text scoreText;
 
 
-    void Start()
-    {
+    void Awake()
+    {   playerIsDead = false;
         gameOverPanel.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         menuPanel.SetActive(false);
         helpPanel.SetActive(false);
+        highScore = playerScript.GetComponent<Score>();
     }
     public void Menu()
     {
@@ -54,16 +58,22 @@ public class Gui : MonoBehaviour
     public void LoadNewScene(string scene)
     {
         SceneManager.LoadScene(scene);
+        Time.timeScale = 1;
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    
 
     void Update()
     {
-        Debug.Log(gameOverPanel.activeInHierarchy);
-        Debug.Log(playerIsDead);
+        
         if(playerIsDead && gameOverPanel.activeInHierarchy==false)
         {
             gameOverPanel.SetActive(true);
             Time.timeScale = 0;
+            scoreText.text = "HighScore:" + highScore.currentScore.ToString();
         }
         healthBar.UpdateBar(playerScript.currentHP, playerScript.maxHp);
     }

@@ -97,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300918, guid: 4f3d817ad821bc345b488255f0de8318, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -290,11 +290,14 @@ MonoBehaviour:
   - {fileID: 4875006150958701626, guid: 1035d2b09b1f38c48b9055fff364cc59, type: 3}
   - {fileID: 4135127632072395667, guid: b24a4555504dc4a489a2e81182518ed8, type: 3}
   - {fileID: 4553451553487428010, guid: 0bbc477ceb40d7a4992de051490e4eb4, type: 3}
+  score: {fileID: 5939419068824822000, guid: 28b4f63f8eeb73b4aaf52d5a48c90ed7, type: 3}
   value:
   - H
   - O
   - C
-  - Ne
+  - N
+  - Ca
+  - S
 --- !u!222 &3290765686131144611
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -400,7 +403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300918, guid: 4f3d817ad821bc345b488255f0de8318, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -555,12 +558,12 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &137342011726836957
 MonoBehaviour:

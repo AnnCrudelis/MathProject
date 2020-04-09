@@ -18,9 +18,10 @@ public class PlayerController : MonoBehaviour
         gui.playerIsDead = false;
         currentHP = maxHp;
         rigidbody2d = GetComponent<Rigidbody2D>();
+       
     }
 
-
+   
     void Move()
     {
         Vector3 playerPos = rigidbody2d.position;
@@ -36,7 +37,8 @@ public class PlayerController : MonoBehaviour
         currentHP -= dmg;
         if (currentHP <= 0)
         {
-            Destroy(gameObject);
+            gui.playerIsDead = true;
+            //Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,10 +60,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-    }
-    void OnDestroy()
-    {
-        gui.playerIsDead = true;
     }
 
 }
