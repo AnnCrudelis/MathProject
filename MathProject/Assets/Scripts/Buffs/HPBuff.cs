@@ -5,7 +5,7 @@ using UnityEngine;
 public class HPBuff : MonoBehaviour, IBuffable
 {
     public float buffVolume;
-        public float lifeTime;
+    public float lifeTime;
     void Start()
     {
         Destroy(this.gameObject, lifeTime);
