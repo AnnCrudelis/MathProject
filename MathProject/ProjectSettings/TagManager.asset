@@ -21,7 +21,7 @@ TagManager:
   - Enemy
   - Bullet
   - Buff
-  - 
+  - BG
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2575658139
+    locked: 0
+  - name: BG
+    uniqueID: 2537318743
     locked: 0

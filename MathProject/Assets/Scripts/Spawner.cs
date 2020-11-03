@@ -7,15 +7,27 @@ public class Spawner : MonoBehaviour
 
     
     public GameObject[] enemyTemplate = new GameObject [0];
-    float timer = 0.5f;
+    float timer = 1f;
     float minRange = 0.7f;
     float maxRange = 2.0f;
     public Score score;
-
-    void Spawn()
+    public Camera MainCamera;
+    private float objectWidth;
+    private float width;
+    private float height;
+    private Vector2 screenBounds;
+    void Awake()
+    {
+        MainCamera = gameObject.GetComponentInParent<Camera>();
+        screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
+        objectWidth = enemyTemplate[0].GetComponent<SpriteRenderer>().bounds.extents.x;
+        width = (float)Screen.width / 2.0f;
+        height = (float)Screen.height / 2.0f;
+    }
+    public GameObject Spawn(Vector3 pos)
     {                
-        Vector3 position = new Vector3(Random.Range(-3.0f, 3.0f),transform.position.y, 0);
-        GameObject GenEnemy = Instantiate(enemyTemplate[0], position, Quaternion.identity);
+        GameObject GenEnemy = Instantiate(enemyTemplate[0], pos, Quaternion.identity);
+        return GenEnemy;
     }
     
 
@@ -23,7 +35,8 @@ public class Spawner : MonoBehaviour
     {
         if (timer <= 0)
         {
-            Spawn();
+            Vector3 position = new Vector3(Random.Range(-screenBounds.x + objectWidth, screenBounds.x - objectWidth), transform.position.y, 0);
+            Spawn(position);
             timer = Random.Range(minRange,maxRange);
         }
         else
